@@ -1,37 +1,20 @@
-## Welcome to GitHub Pages
+# README #
 
-You can use the [editor on GitHub](https://github.com/mdm1987/mdm.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+A simple blog template for <a href="http://jekyllrb.com" target="_blank">Jekyll</a>.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Uses:
+* Twitter Bootstrap 3.2.0
+* Font Awesome 4.2.0
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Here is a <a href="http://itsrifat.github.io/rifyll/" target="_blank">Demo</a>
 
-```markdown
-Syntax highlighted code block
+To get started:
+* Fork this repo
+* Edit [_config.yml](_config.yml):
+  * Change logo_location
+* Edit [_data/menu.yml](_data/menu.yml) to edit menu
+* Edit [_data/personal.yml](_data/personal.yml) to edit persnoal info to show in about me page.
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mdm1987/mdm.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+To create a post:
+* Create a **.md** or **.markdown** file in the _post directory. Add a thumbnail image for the post in the yml front matter, its shown as the post thumbnail in the homepage
