@@ -21,3 +21,5 @@ excerpt_separator: <!--more-->
 
 #show the jumbotron header on index page
 show_blog_header: true
+
+theme: jekyll-theme-architect
