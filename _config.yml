@@ -1,25 +1,5 @@
-# Site settings
-title: mdm-blog
-email: daoming.mudm@alibaba-inc.com
-description: "learn"
-logo_location: ""
-
-#baseurl: "" # the subpath of your site, e.g. /blog/
-#url: "" # the base hostname & protocol for your site
-
-# Build settings
-markdown: kramdown
-kramdown:
-  input: GFM
-
-highlighter: rouge
-
-#Other Global Configuration
-exclude: ['README.md']
-
-excerpt_separator: <!--more-->
-
-#show the jumbotron header on index page
-show_blog_header: true
-
-theme: jekyll-theme-architect
+title: Architect theme
+description: Architect is a theme for GitHub Pages.
+show_downloads: true
+google_analytics:
+theme: 
