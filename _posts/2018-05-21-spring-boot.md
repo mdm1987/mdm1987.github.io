@@ -193,3 +193,7 @@ public EmbeddedServletContainer getEmbeddedServletContainer(
     return getTomcatEmbeddedServletContainer(tomcat);
 }
 ```
+## Actuator
+actuator是spring boot的一个附加功能,可帮助你在应用程序生产环境时监视和管理应用程序。可以使用HTTP的各种请求来监管,审计,收集应用的运行情况.0特别对于微服务管理十分有意义
+
+略
