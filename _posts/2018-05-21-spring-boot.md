@@ -17,7 +17,7 @@ tags:
 * description
 Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run". We take an opinionated view of the Spring platform and third-party libraries so you can get started with minimum fuss. Most Spring Boot applications need very little Spring configuration.
 
-总结：简化spring应用搭建而生，最小代价启动应用，减少开发配置量。
+  总结：简化spring应用搭建而生，最小代价启动应用，减少开发配置量。
 * Features
 -- Create stand-alone Spring applications
 -- Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)
@@ -53,6 +53,7 @@ jar结构：
                 ├── MainMethodRunner.class
                 ├── ...
 ```
+
 com/example：应用class
 lib：依赖的jar文件
 org/springframework/boot/loader：springboot loader class
@@ -80,12 +81,15 @@ public abstract class Archive {
     public abstract List<Archive> getNestedArchives(EntryFilter filter);
 ```
 getNestedArchives函数，这个实际返回的是demo-0.0.1-SNAPSHOT.jar/lib下面的jar的Archive列表。它们的URL是：
+
 ```sh 
 jar:file:/tmp/target/demo-0.0.1-SNAPSHOT.jar!/lib/aopalliance-1.0.jar
 jar:file:/tmp/target/demo-0.0.1-SNAPSHOT.jar!/lib/spring-beans-4.2.3.RELEASE.jar
 ```
+
 ## JarLauncher
 创建一个Archive：
+
 ```sh 
     protected final Archive createArchive() throws Exception {
         ProtectionDomain protectionDomain = getClass().getProtectionDomain();
@@ -104,7 +108,9 @@ jar:file:/tmp/target/demo-0.0.1-SNAPSHOT.jar!/lib/spring-beans-4.2.3.RELEASE.jar
                 : new JarFileArchive(root));
     }
 ```
+
 通过getNestedArchives加载lib下包，并新建线程启动main：
+
 ```sh 
     /**
      * Launch the application given the archive file and a fully configured classloader.
@@ -129,11 +135,13 @@ jar:file:/tmp/target/demo-0.0.1-SNAPSHOT.jar!/lib/spring-beans-4.2.3.RELEASE.jar
         return (Runnable) constructor.newInstance(mainClass, args);
     }
 ```
+
 启动流程总结：
 spring boot应用打包之后，生成一个fat jar，里面包含了应用依赖的jar包，还有Spring boot loader相关的类
 Fat jar的启动Main函数是JarLauncher，它负责创建一个LaunchedURLClassLoader来加载/lib下面的jar，并以一个新线程启动应用的Main函数。
 ## Embed Tomcat
 判断是否在web环境：
+
 ```sh 
 private static final String[] WEB_ENVIRONMENT_CLASSES = { "javax.servlet.Servlet",
     "org.springframework.web.context.ConfigurableWebApplicationContext" };
@@ -148,7 +156,9 @@ private boolean deduceWebEnvironment() {
 }
 
 ```
+
 创建AnnotationConfigEmbeddedWebApplicationContext:
+
 ```sh 
 //org.springframework.boot.SpringApplication
     protected ConfigurableApplicationContext createApplicationContext() {
@@ -168,9 +178,11 @@ private boolean deduceWebEnvironment() {
         return (ConfigurableApplicationContext) BeanUtils.instantiate(contextClass);
     }
 ```
+
 获取EmbeddedServletContainerFactory的实现类:
 spring boot通过获取EmbeddedServletContainerFactory来启动对应的web服务器。常用的两个实现类是TomcatEmbeddedServletContainerFactory和JettyEmbeddedServletContainerFactory。
 启动Tomcat：
+
 ```sh 
 //TomcatEmbeddedServletContainerFactory
 @Override
@@ -193,6 +205,7 @@ public EmbeddedServletContainer getEmbeddedServletContainer(
     return getTomcatEmbeddedServletContainer(tomcat);
 }
 ```
+
 ## Actuator
 actuator是spring boot的一个附加功能,可帮助你在应用程序生产环境时监视和管理应用程序。可以使用HTTP的各种请求来监管,审计,收集应用的运行情况.0特别对于微服务管理十分有意义
 
