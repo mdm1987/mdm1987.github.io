@@ -25,6 +25,7 @@ Spring Boot makes it easy to create stand-alone, production-grade Spring based A
 -- Automatically configure Spring whenever possible
 -- Provide production-ready features such as metrics, health checks and externalized configuration
 -- Absolutely no code generation and no requirement for XML configuration
+
 总结：创建独立spring应用；集成Tomcat，无需war文件；maven配置starter；spring自动配置；提供扩展配置；无需代码以及xml配置。
      把应用打包成为一个jar/war，这个jar/war可以直接启动的，不需要另外配置一个Web Server。
 ## springboot启动
@@ -55,9 +56,13 @@ jar结构：
 ```
 
 com/example：应用class
+
 lib：依赖的jar文件
+
 org/springframework/boot/loader：springboot loader class
+
 描述文件MANIFEST.MF：
+
 ```sh
 Manifest-Version: 1.0
 Start-Class: com.example.SpringBootDemoApplication
@@ -68,11 +73,13 @@ Build-Jdk: 1.8.0_60
 Implementation-Vendor: Pivotal Software, Inc.
 Main-Class: org.springframework.boot.loader.JarLauncher
 ```
+
 main-Class：jar启动main函数
 start-Class：应用main函数
 ## Archive
 归档。
 在spring boot里，抽象出了Archive的概念。一个archive可以是一个jar（JarFileArchive），也可以是一个文件目录（ExplodedArchive）。可以理解为Spring boot抽象出来的统一访问资源的层。
+
 ```sh
 public abstract class Archive {
     public abstract URL getUrl();
