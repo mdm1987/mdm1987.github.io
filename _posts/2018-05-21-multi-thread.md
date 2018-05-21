@@ -2,7 +2,7 @@
 title: 多线程，并发线程
 description: 多线程，concurrent包，并发
 categories:
- - thread
+ - thread,interview
 tags:
 ---
 

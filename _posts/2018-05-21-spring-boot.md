@@ -2,7 +2,7 @@
 title: springboot
 description: springboot原理，启动流程
 categories:
- - springboot
+ - springboot,interview
 tags:
 ---
 <!-- more -->
