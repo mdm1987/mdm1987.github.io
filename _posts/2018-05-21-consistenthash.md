@@ -32,6 +32,59 @@ tags:
 
 ![Alt text](/assets/images/b1cb662698010936de019ad8b7bfca70.png)
 
+## java实现
+
+```java 
+    @Override
+    public void addNode(Node node) {
+        nodeList.add(node);
+        long crcKey = hash(node.getIp());
+        nodeMap.put(crcKey, node);
+    }
+
+    @Override
+    public Node lookupNode(String key) {
+        long crcKey = hash(key);
+        Node node = findValidNode(crcKey);
+        if(node == null){
+            return findValidNode(0);
+        }
+        return node;
+    }
+
+    /**
+     * @param crcKey
+     * @param entrySet
+     */
+    private Node findValidNode(long crcKey) {
+        Set<Map.Entry<Long, Node>> entrySet = nodeMap.entrySet();
+        //顺时针找到最近的一个节点
+        for(Map.Entry<Long, Node> entry : entrySet){
+            long k = entry.getKey();
+            if(crcKey <= k){
+                return entry.getValue();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Long hash(String key) {
+        CRC32 crc = new CRC32();
+        crc.update(key.getBytes());
+        return crc.getValue();
+    }
+```
+
+引入虚拟节点：
+
+![Alt text](/assets/images/2638620-4c2bfc8fae01658d.png)
+
+删除节点
+
+![Alt text](/assets/images/2638620-51c50ea878be4815.png)
+
+
 
 ## 应用场景
 
