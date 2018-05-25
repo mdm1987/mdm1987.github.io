@@ -409,11 +409,11 @@ changyan:
 # Support for gitalk comments system.
 gitalk:
   enable: true
-  clientID: # 80e16258abe8f2400b17
-  clientSecret: # 04eb7fe8a83bcc7e7834c32b375b6b736e434185
-  repo: # dominic-blog-comments
-  owner: # mdm1987
-  admin: # mdm1987
+  clientID: 80e16258abe8f2400b17
+  clientSecret: 04eb7fe8a83bcc7e7834c32b375b6b736e434185
+  repo: dominic-blog-comments
+  owner: mdm1987
+  admin: mdm1987
 
 # Baidu Share
 # Available value:
