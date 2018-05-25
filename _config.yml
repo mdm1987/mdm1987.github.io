@@ -709,3 +709,9 @@ images: assets/images
 
 # Theme version
 version: 5.1.1
+
+gitalk:
+owner: mdm1987
+repo: dominic-blog-comments
+clientID: 80e16258abe8f2400b17
+clientSecret: 04eb7fe8a83bcc7e7834c32b375b6b736e434185
